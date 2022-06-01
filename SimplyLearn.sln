@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyLearn", "SimplyLearn\SimplyLearn.csproj", "{EF70E103-66EE-416C-834E-C330BA830715}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF70E103-66EE-416C-834E-C330BA830715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF70E103-66EE-416C-834E-C330BA830715}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF70E103-66EE-416C-834E-C330BA830715}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF70E103-66EE-416C-834E-C330BA830715}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8256639A-2A70-4EC3-9173-17FBDA0741C8}
+	EndGlobalSection
+EndGlobal
