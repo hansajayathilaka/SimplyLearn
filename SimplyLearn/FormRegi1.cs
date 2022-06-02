@@ -21,6 +21,18 @@ namespace SimplyLearn
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            if (txtFName.Text.Trim() == "")
+            {
+                MessageBox.Show("First name is requeird.");
+                return;
+            }
+
+            if (txtLName.Text.Trim() == "")
+            {
+                MessageBox.Show("First name is requeird.");
+                return;
+            }
+
             string pattern = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"
                 + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)"
                 + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$";

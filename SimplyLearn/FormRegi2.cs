@@ -20,9 +20,45 @@ namespace SimplyLearn
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            string temp;
+            temp = txtExperience.Text.Trim();
+            if (temp == "")
+            {
+                MessageBox.Show("Years of experience is required.");
+                return;
+            }
+            temp = txtExperience.Text.Trim();
+            if (temp == "")
+            {
+                MessageBox.Show("Years of experience is required.");
+                return;
+            }
+
             bool hasBlog = false;
             if (rbtnYes.Checked == true)
+            {
                 hasBlog = true;
+                temp = txtUrl.Text.Trim();
+                if (temp == "")
+                {
+                    MessageBox.Show("Blog URL is required.");
+                    return;
+                }
+
+                temp = comboxBrowser.Text.Trim();
+                if (temp == "")
+                {
+                    MessageBox.Show("Browser is required.");
+                    return;
+                }
+
+                temp = comboxEmployer.Text.Trim();
+                if (temp == "")
+                {
+                    MessageBox.Show("Previous employer is required.");
+                    return;
+                }
+            }
 
             this.trainer.YearsOfExperience = Convert.ToInt32(txtExperience.Text);
             this.trainer.HasBlog = hasBlog;
@@ -30,6 +66,22 @@ namespace SimplyLearn
             this.trainer.Browser = new WebBrowser(comboxBrowser.Text, Convert.ToInt32(comboxVersion.Text));
             this.trainer.Employer = comboxEmployer.Text;
 
+            var certificationsList = new List<string>();
+
+            temp = txtCertificate1.Text.Trim();
+            if (temp != "")
+                certificationsList.Add(temp);
+            temp = txtCertificate2.Text.Trim();
+            if (temp != "")
+                certificationsList.Add(temp);
+            temp = txtCertificate3.Text.Trim();
+            if (temp != "")
+                certificationsList.Add(temp);
+            temp = txtCertificate4.Text.Trim();
+            if (temp != "")
+                certificationsList.Add(temp);
+
+            this.trainer.ListOfCertifications = certificationsList;
 
             FormRegi3 formRegi3 = new FormRegi3(trainer);
             this.Hide();
@@ -66,7 +118,7 @@ namespace SimplyLearn
 
         private void txtExperience_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.Handled =!char.IsDigit(e.KeyChar))
+            if (e.Handled = (!char.IsDigit(e.KeyChar) && (e.KeyChar != '\b')))
             {
                 MessageBox.Show("Alow numbers only");
             }

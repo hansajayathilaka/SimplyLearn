@@ -44,15 +44,18 @@ namespace SimplyLearn
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.comboxVersion = new System.Windows.Forms.ComboBox();
-            this.comboxCetifications = new System.Windows.Forms.ComboBox();
             this.comboxEmployer = new System.Windows.Forms.ComboBox();
             this.comboxBrowser = new System.Windows.Forms.ComboBox();
+            this.txtCertificate1 = new System.Windows.Forms.TextBox();
+            this.txtCertificate2 = new System.Windows.Forms.TextBox();
+            this.txtCertificate3 = new System.Windows.Forms.TextBox();
+            this.txtCertificate4 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(145, 304);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNext.Location = new System.Drawing.Point(145, 383);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(2);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(69, 29);
             this.btnNext.TabIndex = 17;
@@ -63,7 +66,7 @@ namespace SimplyLearn
             // txtUrl
             // 
             this.txtUrl.Location = new System.Drawing.Point(223, 152);
-            this.txtUrl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUrl.Margin = new System.Windows.Forms.Padding(2);
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.Size = new System.Drawing.Size(126, 20);
             this.txtUrl.TabIndex = 16;
@@ -91,10 +94,11 @@ namespace SimplyLearn
             // txtExperience
             // 
             this.txtExperience.Location = new System.Drawing.Point(223, 106);
-            this.txtExperience.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtExperience.Margin = new System.Windows.Forms.Padding(2);
             this.txtExperience.Name = "txtExperience";
             this.txtExperience.Size = new System.Drawing.Size(126, 20);
             this.txtExperience.TabIndex = 12;
+            this.txtExperience.Text = "0";
             this.txtExperience.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtExperience_KeyPress);
             // 
             // label3
@@ -132,19 +136,19 @@ namespace SimplyLearn
             // 
             this.rbtnYes.AutoSize = true;
             this.rbtnYes.Location = new System.Drawing.Point(223, 131);
-            this.rbtnYes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtnYes.Margin = new System.Windows.Forms.Padding(2);
             this.rbtnYes.Name = "rbtnYes";
             this.rbtnYes.Size = new System.Drawing.Size(43, 17);
             this.rbtnYes.TabIndex = 18;
-            this.rbtnYes.TabStop = true;
             this.rbtnYes.Text = "Yes";
             this.rbtnYes.UseVisualStyleBackColor = true;
             // 
             // rbtnNo
             // 
             this.rbtnNo.AutoSize = true;
+            this.rbtnNo.Checked = true;
             this.rbtnNo.Location = new System.Drawing.Point(280, 130);
-            this.rbtnNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtnNo.Margin = new System.Windows.Forms.Padding(2);
             this.rbtnNo.Name = "rbtnNo";
             this.rbtnNo.Size = new System.Drawing.Size(39, 17);
             this.rbtnNo.TabIndex = 19;
@@ -175,7 +179,7 @@ namespace SimplyLearn
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(48, 251);
+            this.label9.Location = new System.Drawing.Point(48, 330);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(100, 13);
@@ -188,36 +192,26 @@ namespace SimplyLearn
             this.label10.Location = new System.Drawing.Point(48, 227);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(102, 13);
+            this.label10.Size = new System.Drawing.Size(71, 13);
             this.label10.TabIndex = 26;
-            this.label10.Text = "No. of cetifications *";
+            this.label10.Text = "Cetifications *";
             // 
             // comboxVersion
             // 
             this.comboxVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboxVersion.FormattingEnabled = true;
             this.comboxVersion.Location = new System.Drawing.Point(223, 199);
-            this.comboxVersion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboxVersion.Margin = new System.Windows.Forms.Padding(2);
             this.comboxVersion.Name = "comboxVersion";
             this.comboxVersion.Size = new System.Drawing.Size(126, 21);
             this.comboxVersion.TabIndex = 29;
-            // 
-            // comboxCetifications
-            // 
-            this.comboxCetifications.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboxCetifications.FormattingEnabled = true;
-            this.comboxCetifications.Location = new System.Drawing.Point(223, 224);
-            this.comboxCetifications.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboxCetifications.Name = "comboxCetifications";
-            this.comboxCetifications.Size = new System.Drawing.Size(126, 21);
-            this.comboxCetifications.TabIndex = 30;
             // 
             // comboxEmployer
             // 
             this.comboxEmployer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboxEmployer.FormattingEnabled = true;
-            this.comboxEmployer.Location = new System.Drawing.Point(223, 249);
-            this.comboxEmployer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboxEmployer.Location = new System.Drawing.Point(223, 328);
+            this.comboxEmployer.Margin = new System.Windows.Forms.Padding(2);
             this.comboxEmployer.Name = "comboxEmployer";
             this.comboxEmployer.Size = new System.Drawing.Size(126, 21);
             this.comboxEmployer.TabIndex = 31;
@@ -227,19 +221,50 @@ namespace SimplyLearn
             this.comboxBrowser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboxBrowser.FormattingEnabled = true;
             this.comboxBrowser.Location = new System.Drawing.Point(223, 175);
-            this.comboxBrowser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboxBrowser.Margin = new System.Windows.Forms.Padding(2);
             this.comboxBrowser.Name = "comboxBrowser";
             this.comboxBrowser.Size = new System.Drawing.Size(126, 21);
             this.comboxBrowser.TabIndex = 32;
+            // 
+            // txtCertificate1
+            // 
+            this.txtCertificate1.Location = new System.Drawing.Point(223, 225);
+            this.txtCertificate1.Name = "txtCertificate1";
+            this.txtCertificate1.Size = new System.Drawing.Size(126, 20);
+            this.txtCertificate1.TabIndex = 33;
+            // 
+            // txtCertificate2
+            // 
+            this.txtCertificate2.Location = new System.Drawing.Point(223, 251);
+            this.txtCertificate2.Name = "txtCertificate2";
+            this.txtCertificate2.Size = new System.Drawing.Size(126, 20);
+            this.txtCertificate2.TabIndex = 34;
+            // 
+            // txtCertificate3
+            // 
+            this.txtCertificate3.Location = new System.Drawing.Point(223, 277);
+            this.txtCertificate3.Name = "txtCertificate3";
+            this.txtCertificate3.Size = new System.Drawing.Size(126, 20);
+            this.txtCertificate3.TabIndex = 35;
+            // 
+            // txtCertificate4
+            // 
+            this.txtCertificate4.Location = new System.Drawing.Point(223, 303);
+            this.txtCertificate4.Name = "txtCertificate4";
+            this.txtCertificate4.Size = new System.Drawing.Size(126, 20);
+            this.txtCertificate4.TabIndex = 36;
             // 
             // FormRegi2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 370);
+            this.ClientSize = new System.Drawing.Size(393, 452);
+            this.Controls.Add(this.txtCertificate4);
+            this.Controls.Add(this.txtCertificate3);
+            this.Controls.Add(this.txtCertificate2);
+            this.Controls.Add(this.txtCertificate1);
             this.Controls.Add(this.comboxBrowser);
             this.Controls.Add(this.comboxEmployer);
-            this.Controls.Add(this.comboxCetifications);
             this.Controls.Add(this.comboxVersion);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
@@ -255,7 +280,7 @@ namespace SimplyLearn
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormRegi2";
             this.Text = "Simply learn | Registration Step 2";
             this.Load += new System.EventHandler(this.FormRegi2_Load);
@@ -281,8 +306,11 @@ namespace SimplyLearn
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox comboxVersion;
-        private System.Windows.Forms.ComboBox comboxCetifications;
         private System.Windows.Forms.ComboBox comboxEmployer;
         private System.Windows.Forms.ComboBox comboxBrowser;
+        private System.Windows.Forms.TextBox txtCertificate1;
+        private System.Windows.Forms.TextBox txtCertificate2;
+        private System.Windows.Forms.TextBox txtCertificate3;
+        private System.Windows.Forms.TextBox txtCertificate4;
     }
 }

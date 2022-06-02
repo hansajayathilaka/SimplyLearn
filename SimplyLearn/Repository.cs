@@ -29,6 +29,15 @@ namespace SimplyLearn
                     }
                 );
 
+                var certificateDt = new DataTable();
+                certificateDt.Columns.Add("name", typeof(string));
+
+                trainer.ListOfCertifications.ForEach(delegate (string cetificate)
+                    {
+                        certificateDt.Rows.Add(cetificate);
+                    }
+                );
+
                 using (cn = new SqlConnection { ConnectionString = connectionString })
                 {
 
@@ -48,7 +57,7 @@ namespace SimplyLearn
                         cmd.Parameters.Add(new SqlParameter { ParameterName = "@BlogURL", SqlDbType = SqlDbType.NVarChar });
                         cmd.Parameters.Add(new SqlParameter { ParameterName = "@BrowserName", SqlDbType = SqlDbType.NVarChar });
                         cmd.Parameters.Add(new SqlParameter { ParameterName = "@BrowserVersion", SqlDbType = SqlDbType.Int });
-                        // cmd.Parameters.Add(new SqlParameter { ParameterName = "@ListOfCertifications", SqlDbType = SqlDbType.NVarChar });
+                        cmd.Parameters.Add(new SqlParameter { ParameterName = "@certificationsDt", SqlDbType = SqlDbType.Structured });
                         cmd.Parameters.Add(new SqlParameter { ParameterName = "@Employer", SqlDbType = SqlDbType.NVarChar });
                         cmd.Parameters.Add(new SqlParameter { ParameterName = "@RegistrationFee", SqlDbType = SqlDbType.Int });
                         cmd.Parameters.Add(new SqlParameter { ParameterName = "@SessionsDt", SqlDbType = SqlDbType.Structured });
@@ -62,7 +71,7 @@ namespace SimplyLearn
                         cmd.Parameters["@BlogURL"].Value = trainer.LastName;
                         cmd.Parameters["@BrowserName"].Value = trainer.Browser.BrowserName;
                         cmd.Parameters["@BrowserVersion"].Value = trainer.Browser.MajorVersion;
-                        // cmd.Parameters["@ListOfCertifications"].Value = trainer.;
+                        cmd.Parameters["@certificationsDt"].Value = certificateDt;
                         cmd.Parameters["@Employer"].Value = trainer.Employer;
                         cmd.Parameters["@RegistrationFee"].Value = trainer.RegistrationFee;
                         cmd.Parameters["@SessionsDt"].Value = sessionDt;
