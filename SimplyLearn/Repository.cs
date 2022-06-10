@@ -101,5 +101,57 @@ namespace SimplyLearn
 
             return res;
         }
+
+        public bool LoginUser(User user)
+        {
+            bool res = false;
+            var dt = new DataTable();
+            SqlConnection cn = null;
+            try
+            {
+                using (cn = new SqlConnection { ConnectionString = connectionString })
+                {
+
+                    using (var cmd = new SqlCommand
+                    {
+                        Connection = cn,
+                        CommandType = CommandType.StoredProcedure
+                    })
+                    {
+                        cmd.CommandText = "dbo.SP_LOGIN_USER";
+
+                        cmd.Parameters.Add(new SqlParameter { ParameterName = "@Username", SqlDbType = SqlDbType.NVarChar });
+                        cmd.Parameters.Add(new SqlParameter { ParameterName = "@Password", SqlDbType = SqlDbType.NVarChar });
+                        cmd.Parameters["@Username"].Value = user.Username;
+                        cmd.Parameters["@Password"].Value = user.Password;
+
+                        cn.Open();
+
+                        dt.Load(cmd.ExecuteReader());
+                        if (dt.Rows.Count == 1 && dt.Rows[0]["Username"].ToString() == user.Username)
+                        {
+                            res = true;
+                        } else
+                        {
+                            res = false;
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+                res = false;
+
+            }
+            finally
+            {
+                cn.Dispose();
+            }
+
+            return res;
+        }
     }
 }

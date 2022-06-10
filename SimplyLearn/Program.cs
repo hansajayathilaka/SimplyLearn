@@ -16,10 +16,9 @@ namespace SimplyLearn
         [STAThread]
         static void Main()
         {
-            Trainer trainer = new Trainer();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormRegi1(trainer));
+            Application.Run(new Login());
         }
     }
 }

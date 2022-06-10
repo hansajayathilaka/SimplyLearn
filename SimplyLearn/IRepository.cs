@@ -8,5 +8,6 @@ namespace SimplyLearn
     public interface IRepository
     {
         int SaveTrainer(Trainer trainer);
+        bool LoginUser(User user);
     }
 }

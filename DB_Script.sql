@@ -77,6 +77,16 @@ GO
 ALTER TABLE [dbo].[Certificate] CHECK CONSTRAINT [FK_Certificate_Certificate]
 GO
 
+CREATE TABLE [dbo].[User](
+	[Username] [nvarchar](50) NOT NULL,
+	[Password] [nvarchar](50) NULL,
+ CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
+(
+	[Username] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
 
 /****** Object:  UserDefinedTableType [dbo].[CetificationType]    Script Date: 6/2/2022 9:53:21 PM ******/
 CREATE TYPE [dbo].[CetificationType] AS TABLE(
@@ -155,3 +165,29 @@ LEFT OUTER JOIN [dbo].[Session] s ON t.TrainerId = s.TrainerID
 LEFT OUTER JOIN [dbo].[Certificate] c ON t.TrainerId = c.TrainerId;
 GO
 
+
+CREATE PROCEDURE [dbo].[SP_CREATE_USER] 
+(
+	@Username NVARCHAR(50),
+	@Password NVARCHAR(50)
+)
+AS
+BEGIN
+	INSERT INTO [dbo].[User] ([Username], [Password]) VALUES (@Username, @Password);
+END
+GO
+
+
+CREATE PROCEDURE [dbo].[SP_LOGIN_USER] 
+(
+	@Username NVARCHAR(50),
+	@Password NVARCHAR(50)
+)
+AS
+BEGIN
+	SELECT [Username] FROM [dbo].[User] WHERE [Username] = @Username AND [Password] = @Password;
+END
+GO
+
+
+EXEC [dbo].[SP_CREATE_USER] 'admin', 'admin'
