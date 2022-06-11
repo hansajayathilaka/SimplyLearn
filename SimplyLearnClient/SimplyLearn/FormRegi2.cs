@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperSimpleTcp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,12 @@ namespace SimplyLearn
     public partial class FormRegi2 : Form
     {
         private readonly Trainer trainer;
-        public FormRegi2(Trainer trainer)
+        private readonly SimpleTcpClient client;
+        public FormRegi2(SimpleTcpClient client, Trainer trainer)
         {
             InitializeComponent();
             this.trainer = trainer;
+            this.client = client;
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -60,10 +63,16 @@ namespace SimplyLearn
                 }
             }
 
+            if (comboxVersion.Text == "" || comboxBrowser.Text == "")
+            {
+                MessageBox.Show("Browser is required.");
+                return;
+            } else
+                this.trainer.Browser = new WebBrowser(comboxBrowser.Text, Convert.ToInt32(comboxVersion.Text));
+
             this.trainer.YearsOfExperience = Convert.ToInt32(txtExperience.Text);
             this.trainer.HasBlog = hasBlog;
             this.trainer.BlogURL = txtUrl.Text;
-            this.trainer.Browser = new WebBrowser(comboxBrowser.Text, Convert.ToInt32(comboxVersion.Text));
             this.trainer.Employer = comboxEmployer.Text;
 
             var certificationsList = new List<string>();
@@ -83,7 +92,7 @@ namespace SimplyLearn
 
             this.trainer.ListOfCertifications = certificationsList;
 
-            FormRegi3 formRegi3 = new FormRegi3(trainer);
+            FormRegi3 formRegi3 = new FormRegi3(client, trainer);
             this.Hide();
             formRegi3.ShowDialog();
             this.Close();
@@ -107,6 +116,7 @@ namespace SimplyLearn
             comboxEmployer.Items.Add("Microsoft");
             comboxEmployer.Items.Add("Amerzon");
             comboxEmployer.Items.Add("None");
+            comboxEmployer.SelectedIndex = 4;
 
             comboxVersion.Items.Add("1");
             comboxVersion.Items.Add("2");

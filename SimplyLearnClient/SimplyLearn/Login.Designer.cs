@@ -36,17 +36,18 @@ namespace SimplyLearn
             this.label4 = new System.Windows.Forms.Label();
             this.txtUName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.lblSessionCount = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtUrl = new System.Windows.Forms.TextBox();
+            this.btnConnect = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(137, 72);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(183, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.Size = new System.Drawing.Size(49, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "-Login-";
             // 
@@ -54,8 +55,7 @@ namespace SimplyLearn
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(100, 44);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(133, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(119, 25);
             this.label1.TabIndex = 2;
@@ -63,10 +63,10 @@ namespace SimplyLearn
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(120, 185);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLogin.Location = new System.Drawing.Point(160, 284);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(69, 29);
+            this.btnLogin.Size = new System.Drawing.Size(92, 36);
             this.btnLogin.TabIndex = 15;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -74,63 +74,83 @@ namespace SimplyLearn
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(135, 140);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPassword.Location = new System.Drawing.Point(180, 228);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(126, 20);
+            this.txtPassword.Size = new System.Drawing.Size(167, 22);
             this.txtPassword.TabIndex = 12;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(41, 142);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(55, 231);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.Size = new System.Drawing.Size(76, 16);
             this.label4.TabIndex = 11;
             this.label4.Text = "Password *";
             // 
             // txtUName
             // 
-            this.txtUName.Location = new System.Drawing.Point(135, 117);
-            this.txtUName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtUName.Location = new System.Drawing.Point(180, 200);
+            this.txtUName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUName.Name = "txtUName";
-            this.txtUName.Size = new System.Drawing.Size(126, 20);
+            this.txtUName.Size = new System.Drawing.Size(167, 22);
             this.txtUName.TabIndex = 10;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(41, 119);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(55, 202);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.Size = new System.Drawing.Size(79, 16);
             this.label3.TabIndex = 9;
             this.label3.Text = "Username *";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(117, 242);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 13);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Current login session count: ";
             // 
             // lblSessionCount
             // 
             this.lblSessionCount.AutoSize = true;
-            this.lblSessionCount.Location = new System.Drawing.Point(263, 242);
+            this.lblSessionCount.Location = new System.Drawing.Point(331, 354);
+            this.lblSessionCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSessionCount.Name = "lblSessionCount";
-            this.lblSessionCount.Size = new System.Drawing.Size(13, 13);
+            this.lblSessionCount.Size = new System.Drawing.Size(15, 16);
             this.lblSessionCount.TabIndex = 17;
             this.lblSessionCount.Text = "0";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(136, 354);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(173, 16);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Current login session count: ";
+            // 
+            // txtUrl
+            // 
+            this.txtUrl.Location = new System.Drawing.Point(57, 142);
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(194, 22);
+            this.txtUrl.TabIndex = 19;
+            this.txtUrl.Text = "127.0.0.1:9000";
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.Location = new System.Drawing.Point(271, 142);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(75, 23);
+            this.btnConnect.TabIndex = 18;
+            this.btnConnect.Text = "Connect";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(305, 270);
+            this.ClientSize = new System.Drawing.Size(407, 412);
+            this.Controls.Add(this.txtUrl);
+            this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.lblSessionCount);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnLogin);
@@ -140,8 +160,10 @@ namespace SimplyLearn
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Login";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,7 +178,9 @@ namespace SimplyLearn
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtUName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblSessionCount;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtUrl;
+        private System.Windows.Forms.Button btnConnect;
     }
 }

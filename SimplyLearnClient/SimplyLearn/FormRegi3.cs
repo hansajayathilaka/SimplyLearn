@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperSimpleTcp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,15 +13,17 @@ namespace SimplyLearn
     public partial class FormRegi3 : Form
     {
         private readonly Trainer trainer;
+        private readonly SimpleTcpClient client;
         int location = 10;
         List<TextBox> sessionName = new List<TextBox>();
         List<TextBox> sessionDescription = new List<TextBox>();
-        public FormRegi3(Trainer trainer)
+        public FormRegi3(SimpleTcpClient client, Trainer trainer)
         {
             InitializeComponent();
             add_texbox();
             this.panel.AutoScroll = true;
             this.trainer = trainer;
+            this.client = client;
         }
 
         private void btnAddSession_Click(object sender, EventArgs e)
@@ -88,7 +91,7 @@ session";
 
             this.trainer.Sessions = session;
 
-            FormRegi4 formRegi4 = new FormRegi4(trainer);
+            FormRegi4 formRegi4 = new FormRegi4(client, trainer);
             this.Hide();
             formRegi4.ShowDialog();
             this.Close();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperSimpleTcp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +14,12 @@ namespace SimplyLearn
     public partial class FormRegi1 : Form
     {
         private readonly Trainer trainer;
-        public FormRegi1(Trainer trainer)
+        private readonly SimpleTcpClient client;
+        public FormRegi1(SimpleTcpClient client, Trainer trainer)
         {
             InitializeComponent();
             this.trainer = trainer;
+            this.client = client;
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -48,7 +51,7 @@ namespace SimplyLearn
             this.trainer.LastName = txtLName.Text;
             this.trainer.Email = txtEmail.Text;
 
-            FormRegi2 formRegi2 = new FormRegi2(trainer);
+            FormRegi2 formRegi2 = new FormRegi2(client, trainer);
             this.Hide();
             formRegi2.ShowDialog();
             this.Show();

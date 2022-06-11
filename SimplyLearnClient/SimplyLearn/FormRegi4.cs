@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperSimpleTcp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,15 +13,17 @@ namespace SimplyLearn
     public partial class FormRegi4 : Form
     {
         private readonly Trainer trainer;
-        public FormRegi4(Trainer trainer)
+        private readonly SimpleTcpClient client;
+        public FormRegi4(SimpleTcpClient client, Trainer trainer)
         {
             InitializeComponent();
             this.trainer = trainer;
+            this.client = client;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            IRepository repository = new Repository();
+            IRepository repository = new Repository(client);
             var res = this.trainer.RegisterTrainer(repository);
             if (res.Error != null)
             {
@@ -51,6 +54,10 @@ namespace SimplyLearn
                         MessageBox.Show("Unknown error. Error code " + res.Error);
                         break;
                 }
+            }
+            else
+            {
+                MessageBox.Show("Data sent...");
             }
             this.Close();
         }

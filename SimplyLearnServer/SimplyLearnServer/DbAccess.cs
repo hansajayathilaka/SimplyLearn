@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimplyLearnServer.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -6,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimplyLearn
+namespace SimplyLearnServer
 {
-    public class Repository: IRepository
+    public class DbAccess
     {
         static string connectionString = "Data Source=(local);" +
                                     "Initial Catalog=SimplyLearn;" +
                                     "Integrated Security=SSPI";
-        public int SaveTrainer(Trainer trainer)
+        public static int SaveTrainer(Trainer trainer)
         {
             int res = 0;
             SqlConnection cn = null;
@@ -24,18 +25,18 @@ namespace SimplyLearn
                 sessionDt.Columns.Add("description", typeof(string));
 
                 trainer.Sessions.ForEach(delegate (Session session)
-                    {
-                        sessionDt.Rows.Add(session.Title, session.Description);
-                    }
+                {
+                    sessionDt.Rows.Add(session.Title, session.Description);
+                }
                 );
 
                 var certificateDt = new DataTable();
                 certificateDt.Columns.Add("name", typeof(string));
 
                 trainer.ListOfCertifications.ForEach(delegate (string cetificate)
-                    {
-                        certificateDt.Rows.Add(cetificate);
-                    }
+                {
+                    certificateDt.Rows.Add(cetificate);
+                }
                 );
 
                 using (cn = new SqlConnection { ConnectionString = connectionString })
@@ -102,7 +103,7 @@ namespace SimplyLearn
             return res;
         }
 
-        public bool LoginUser(User user)
+        public static bool LoginUser(User user)
         {
             bool res = false;
             var dt = new DataTable();
@@ -131,7 +132,8 @@ namespace SimplyLearn
                         if (dt.Rows.Count == 1 && dt.Rows[0]["Username"].ToString() == user.Username)
                         {
                             res = true;
-                        } else
+                        }
+                        else
                         {
                             res = false;
                         }
